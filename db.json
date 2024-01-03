@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "title": "kapal api update",
+      "price": 432
+    },
+    {
+      "id": 3,
+      "title": "kopiku",
+      "price": 6500
+    },
+    {
+      "title": "golda",
+      "price": "3000",
+      "id": 4
+    },
+    {
+      "title": "expresso",
+      "price": "9000",
+      "id": 5
+    }
+  ]
+}
