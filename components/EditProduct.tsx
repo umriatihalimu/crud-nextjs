@@ -6,14 +6,18 @@ import { useState } from "react";
 
 interface Iproducts {
   id: number;
-  title: string;
-  price: number;
+  kota: string;
+  pbi: number;
+  bpbi: number;
+  jamkesda: number;
   index: number;
 }
 
 const EditProduct = (product: Iproducts) => {
-  const [title, setTitle] = useState(product.title);
-  const [price, setPrice] = useState(product.price);
+  const [kota, setKota] = useState(product.kota);
+  const [pbi, setpbi] = useState(product.pbi);
+  const [bpbi, setbpbi] = useState(product.bpbi);
+  const [jamkesda, setjamkesda] = useState(product.jamkesda);
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false); //untuk loading savingnya
   const router = useRouter();
@@ -30,8 +34,10 @@ const EditProduct = (product: Iproducts) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: title,
-        price: price,
+        kota: kota,
+        pbi: pbi,
+        bpbi: bpbi,
+        jamkesda: jamkesda,
       }),
     });
     setIsMutating(false); //setelah submit
@@ -54,27 +60,47 @@ const EditProduct = (product: Iproducts) => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-semibold text-lg">Ubah Produk</h3>
+          <h3 className="font-semibold text-lg">Ubah Data</h3>
 
           {/* form pasangannya sama onSubmit */}
           <form>
             <div className="form-control">
-              <label className="label font-semibold">Nama Produk</label>
+              <label className="label font-semibold">Kota/Kab</label>
               <input
                 type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Produk"
+                value={kota}
+                onChange={(e) => setKota(e.target.value)}
+                placeholder="kota/kab"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>
             <div className="form-control">
-              <label className="label font-semibold">Harga</label>
+              <label className="label font-semibold">PBI</label>
               <input
-                type="text"
-                value={price}
-                onChange={(e) => setPrice(Number(e.target.value))}
-                placeholder="Harga"
+                type="number"
+                value={pbi}
+                onChange={(e) => setpbi(Number(e.target.value))}
+                placeholder="pbi"
+                className="border rounded-md p-2 px-2 text-sm"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label font-semibold">BPBI</label>
+              <input
+                type="number"
+                value={bpbi}
+                onChange={(e) => setbpbi(Number(e.target.value))}
+                placeholder="bpbi"
+                className="border rounded-md p-2 px-2 text-sm"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label font-semibold">Jamkesda</label>
+              <input
+                type="number"
+                value={jamkesda}
+                onChange={(e) => setjamkesda(Number(e.target.value))}
+                placeholder="jamkesda"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>

@@ -1,14 +1,15 @@
 "use client";
 
-import { log } from "console";
 import { useRouter } from "next/navigation";
 // SyntheticEvent itu type data untuk e
 import { useState } from "react";
 
 interface Iproducts {
   id: number;
-  title: string;
-  price: number;
+  kota: string;
+  pbi: number;
+  bpbi: number;
+  jamkesda: number;
   index: number;
 }
 
@@ -35,7 +36,7 @@ const DeleteProduct = (product: Iproducts) => {
   };
 
   return (
-    <div className="p-3 pb-0">
+    <div className="p-3 pb-0 text-black">
       <button onClick={handleModal} className="btn btn-sm btn-error">
         Hapus
       </button>
@@ -49,7 +50,7 @@ const DeleteProduct = (product: Iproducts) => {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-semibold ">
-            Anda akan menghapus {product.title}?
+            Anda akan menghapus {product.kota}?
           </h3>
           <div className="modal-action">
             <button type="button" className="btn btn-sm" onClick={handleModal}>

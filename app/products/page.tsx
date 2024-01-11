@@ -1,11 +1,15 @@
 import AddNewProduct from "@/components/AddNewProduct";
 import DeleteProduct from "@/components/DeleteProduct";
 import EditProduct from "@/components/EditProduct";
+import HasilInference from "@/components/HasilInference";
+import InputSemesta from "@/components/InputSemesta";
 
 interface Iproducts {
   id: number;
-  title: string;
-  price: number;
+  kota: string;
+  pbi: number;
+  bpbi: number;
+  jamkesda: number;
   index: number;
 }
 
@@ -18,27 +22,34 @@ const Products = async () => {
   const products: Iproducts[] = await res.json();
 
   return (
-    <div className="p-5 bg-[#1f130f] h-screen ">
-      <h1 className="text-white">List Produk</h1>
+    <div className="p-5 bg-slate-300 ">
+      <h1 className="text-black">
+        Data BPI, BPBI dan Jamkesda Sulawesi Tenggara
+      </h1>
       <div className="p-2">
         <AddNewProduct />
       </div>
+
       <table className="table w-full ">
         <thead>
-          <tr className="text-white">
+          <tr className="text-black">
             <th>#</th>
-            <th>Nama Produk</th>
-            <th>Harga</th>
+            <th>Kota / Kab</th>
+            <th>PBI</th>
+            <th>BPBI</th>
+            <th>Jamkesda</th>
             <th>Aksi</th>
           </tr>
         </thead>
-        <tbody className="text-white">
+        <tbody className="text-black">
           {products.map((product, index) => {
             return (
               <tr key={product.id}>
                 <td>{index + 1}</td>
-                <td>{product.title}</td>
-                <td>{product.price}</td>
+                <td>{product.kota}</td>
+                <td>{product.pbi}</td>
+                <td>{product.bpbi}</td>
+                <td>{product.jamkesda}</td>
                 <td className="flex gap-2 font-semibold ">
                   <EditProduct {...product} />
                   {/* kirimkan props ke deleteProduct */}
@@ -49,6 +60,10 @@ const Products = async () => {
           })}
         </tbody>
       </table>
+      <div className="">
+        <InputSemesta />
+      </div>
+      <HasilInference />
     </div>
   );
 };

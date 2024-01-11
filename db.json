@@ -2,23 +2,24 @@
   "products": [
     {
       "id": 2,
-      "title": "kapal api update",
-      "price": 432
+      "kota": "konawe",
+      "pbi": 107398,
+      "bpbi": 54066,
+      "jamkesda": 2496
     },
     {
       "id": 3,
-      "title": "kopiku",
-      "price": 6500
+      "kota": "kolaka",
+      "pbi": 82529,
+      "bpbi": 57252,
+      "jamkesda": 2303
     },
     {
-      "title": "golda",
-      "price": "3000",
+      "kota": "bombana",
+      "pbi": "8611",
+      "bpbi": "23902",
+      "jamkesda": "157",
       "id": 4
-    },
-    {
-      "title": "expresso",
-      "price": "9000",
-      "id": 5
     }
   ]
 }
