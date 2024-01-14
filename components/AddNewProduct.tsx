@@ -5,10 +5,9 @@ import { useRouter } from "next/navigation";
 import { SyntheticEvent, useState } from "react";
 
 const AddNewProduct = () => {
-  const [kota, setKota] = useState("");
-  const [pbi, setpbi] = useState("");
-  const [bpbi, setbpbi] = useState("");
-  const [jamkesda, setjamkesda] = useState("");
+  const [produk, setProduk] = useState("");
+  const [harga, setHarga] = useState("");
+
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false); //untuk loading savingnya
   const router = useRouter();
@@ -26,17 +25,14 @@ const AddNewProduct = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        kota: kota,
-        pbi: pbi,
-        bpbi: bpbi,
-        jamkesda: jamkesda,
+        produk: produk,
+        harga: harga,
       }),
     });
     setIsMutating(false); //setelah submit
-    setKota("");
-    setbpbi("");
-    setpbi("");
-    setjamkesda("");
+    setHarga("");
+    setProduk("");
+
     router.refresh();
     setModal(false);
   };
@@ -44,7 +40,7 @@ const AddNewProduct = () => {
   return (
     <div className="p-3 pb-0 ">
       <button onClick={handleModal} className="btn btn-sm btn-neutral">
-        Tambah Data
+        Tambah Produk
       </button>
       {/* kontrol modalnya pake checkbox dngn class modal-toggle */}
       <input
@@ -55,47 +51,27 @@ const AddNewProduct = () => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-semibold text-lg text-black">Tambah Data</h3>
+          <h3 className="font-semibold text-lg text-black">Tambah Produk</h3>
 
           {/* form pasangannya sama onSubmit */}
           <form onSubmit={handleSubmit}>
             <div className="form-control">
-              <label className="label font-semibold">Kota / Kabupaten</label>
+              <label className="label font-semibold">Nama Produk</label>
               <input
                 type="text"
-                value={kota}
-                onChange={(e) => setKota(e.target.value)}
-                placeholder="kota/kab"
+                value={produk}
+                onChange={(e) => setProduk(e.target.value)}
+                placeholder="produk"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>
             <div className="form-control">
-              <label className="label font-semibold">PBI</label>
+              <label className="label font-semibold">Harga</label>
               <input
                 type="number"
-                value={pbi}
-                onChange={(e) => setpbi(e.target.value)}
-                placeholder="pbi"
-                className="border rounded-md p-2 px-2 text-sm"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label font-semibold">BPBI</label>
-              <input
-                type="number"
-                value={bpbi}
-                onChange={(e) => setbpbi(e.target.value)}
-                placeholder="bpbi"
-                className="border rounded-md p-2 px-2 text-sm"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label font-semibold">Jamkesda</label>
-              <input
-                type="number"
-                value={jamkesda}
-                onChange={(e) => setjamkesda(e.target.value)}
-                placeholder="jamkesda"
+                value={harga}
+                onChange={(e) => setHarga(e.target.value)}
+                placeholder="harga"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>

@@ -2,24 +2,13 @@
   "products": [
     {
       "id": 2,
-      "kota": "konawe",
-      "pbi": 107398,
-      "bpbi": 54066,
-      "jamkesda": 2496
+      "produk": "golda",
+      "harga": 3000
     },
     {
       "id": 3,
-      "kota": "kolaka",
-      "pbi": 82529,
-      "bpbi": 57252,
-      "jamkesda": 2303
-    },
-    {
-      "kota": "bombana",
-      "pbi": "8611",
-      "bpbi": "23902",
-      "jamkesda": "157",
-      "id": 4
+      "produk": "kopiko",
+      "harga": 6000
     }
   ]
 }

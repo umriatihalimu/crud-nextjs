@@ -6,18 +6,15 @@ import { useState } from "react";
 
 interface Iproducts {
   id: number;
-  kota: string;
-  pbi: number;
-  bpbi: number;
-  jamkesda: number;
+  produk: string;
+  harga: number;
   index: number;
 }
 
 const EditProduct = (product: Iproducts) => {
-  const [kota, setKota] = useState(product.kota);
-  const [pbi, setpbi] = useState(product.pbi);
-  const [bpbi, setbpbi] = useState(product.bpbi);
-  const [jamkesda, setjamkesda] = useState(product.jamkesda);
+  const [produk, setProduk] = useState(product.produk);
+  const [harga, setHarga] = useState(product.harga);
+
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false); //untuk loading savingnya
   const router = useRouter();
@@ -34,10 +31,8 @@ const EditProduct = (product: Iproducts) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        kota: kota,
-        pbi: pbi,
-        bpbi: bpbi,
-        jamkesda: jamkesda,
+        produk: produk,
+        harga: harga,
       }),
     });
     setIsMutating(false); //setelah submit
@@ -65,42 +60,22 @@ const EditProduct = (product: Iproducts) => {
           {/* form pasangannya sama onSubmit */}
           <form>
             <div className="form-control">
-              <label className="label font-semibold">Kota/Kab</label>
+              <label className="label font-semibold">Produk</label>
               <input
                 type="text"
-                value={kota}
-                onChange={(e) => setKota(e.target.value)}
-                placeholder="kota/kab"
+                value={produk}
+                onChange={(e) => setProduk(e.target.value)}
+                placeholder="produk"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>
             <div className="form-control">
-              <label className="label font-semibold">PBI</label>
+              <label className="label font-semibold">Harga</label>
               <input
                 type="number"
-                value={pbi}
-                onChange={(e) => setpbi(Number(e.target.value))}
-                placeholder="pbi"
-                className="border rounded-md p-2 px-2 text-sm"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label font-semibold">BPBI</label>
-              <input
-                type="number"
-                value={bpbi}
-                onChange={(e) => setbpbi(Number(e.target.value))}
-                placeholder="bpbi"
-                className="border rounded-md p-2 px-2 text-sm"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label font-semibold">Jamkesda</label>
-              <input
-                type="number"
-                value={jamkesda}
-                onChange={(e) => setjamkesda(Number(e.target.value))}
-                placeholder="jamkesda"
+                value={harga}
+                onChange={(e) => setHarga(Number(e.target.value))}
+                placeholder="harga"
                 className="border rounded-md p-2 px-2 text-sm"
               />
             </div>

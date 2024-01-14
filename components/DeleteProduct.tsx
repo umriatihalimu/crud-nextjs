@@ -6,10 +6,8 @@ import { useState } from "react";
 
 interface Iproducts {
   id: number;
-  kota: string;
-  pbi: number;
-  bpbi: number;
-  jamkesda: number;
+  produk: string;
+  harga: number;
   index: number;
 }
 
@@ -50,7 +48,7 @@ const DeleteProduct = (product: Iproducts) => {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-semibold ">
-            Anda akan menghapus {product.kota}?
+            Anda akan menghapus {product.produk}?
           </h3>
           <div className="modal-action">
             <button type="button" className="btn btn-sm" onClick={handleModal}>

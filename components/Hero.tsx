@@ -4,15 +4,15 @@ const Hero = () => {
   return (
     <div>
       <div>
-        <div className="flex items-center justify-center bg-slate-300 h-screen text-black ">
+        <div className="flex items-center justify-center bg-hero-pattern  bg-cover h-screen text-white  ">
           <div className="px-25 text-center ">
-            <h1 className="font-bold text-4xl pb-3">Selamat datang!</h1>
+            <h1 className="font-bold text-4xl pb-3">Selamat datang, Admin!</h1>
 
             <Link
               href={"/products/"}
-              className="font-extralight bg-blue-900 rounded p-1 text-white"
+              className="font-extralight bg-[#856450] rounded p-1 text-white "
             >
-              Lihat
+              Lihat Produk
             </Link>
           </div>
         </div>
